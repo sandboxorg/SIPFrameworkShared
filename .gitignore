@@ -108,3 +108,5 @@ Backup*/
 UpgradeLog*.XML
 .hg/
 *.7z
+*.msi
+*.DotSettings
