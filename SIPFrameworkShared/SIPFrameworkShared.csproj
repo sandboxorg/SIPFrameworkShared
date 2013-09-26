@@ -57,6 +57,7 @@
     <Compile Include="DynamicListSimpleOeMenuItemBase.cs" />
     <Compile Include="ICommandImage.cs" />
     <Compile Include="ISharedCommand.cs" />
+    <Compile Include="ISharedCommandWithExecuteParameter.cs" />
     <Compile Include="ISimpleSsmsAddin.cs" />
     <Compile Include="ISsmsFunctionalityProvider.cs" />
     <Compile Include="ISsmsObject.cs" />
