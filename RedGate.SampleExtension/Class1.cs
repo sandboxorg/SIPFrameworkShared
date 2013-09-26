@@ -64,8 +64,7 @@ namespace RedGate.SampleExtension
 
         public override bool AppliesTo(ObjectExplorerNodeDescriptorBase oeNode)
         {
-            var oe100Node = oeNode as IOe100Node;
-            return oe100Node != null && oe100Node.Path == @"Server/Database/Table/Trigger";
+            return true;
         }
 
         public override string ItemText
@@ -75,7 +74,13 @@ namespace RedGate.SampleExtension
 
         public override void OnAction(ObjectExplorerNodeDescriptorBase node)
         {
-            m_Provider4.QueryWindow.OpenNew("stuff");
+            var oeNode = (IOeNode) node;
+            if (oeNode == null)
+            {
+                m_Provider4.QueryWindow.OpenNew("null");
+                return;
+            }
+            m_Provider4.QueryWindow.OpenNew(string.Format("Name: {0}\nPath: {1}\nType: {2}", oeNode.Name, oeNode.Path, oeNode.Type));
         }
     }
 }

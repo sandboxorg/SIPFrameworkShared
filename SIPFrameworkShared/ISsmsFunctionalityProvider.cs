@@ -29,6 +29,7 @@ namespace RedGate.SIPFrameworkShared
 
     public interface ISsmsFunctionalityProvider4 : ISsmsFunctionalityProvider3
     {
+        void AddGlobalCommand(ISharedCommandWithExecuteParameter command);
         object SsmsDte2 { get; }
         object SsmsAddinInstance { get; }
         IQueryWindowServices QueryWindow { get; }

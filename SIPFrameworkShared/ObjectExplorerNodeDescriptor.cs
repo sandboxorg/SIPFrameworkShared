@@ -2,10 +2,11 @@
 
 namespace RedGate.SIPFrameworkShared
 {
-    public interface IOe100Node
+    public interface IOeNode
     {
         string Name { get; }
         string Path { get; }
+        string Type { get; }
     }
 
     [Serializable]
