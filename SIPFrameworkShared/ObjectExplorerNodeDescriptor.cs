@@ -7,6 +7,27 @@ namespace RedGate.SIPFrameworkShared
         string Name { get; }
         string Path { get; }
         string Type { get; }
+        bool IsDatabaseObject { get; }
+        bool TryGetDatabaseObject(out IDatabaseObjectInfo databaseObjectInfo);
+        bool HasConnection { get; }
+        bool TryGetConnection (out IConnectionInfo connectionInfo);
+    }
+
+    public interface IConnectionInfo
+    {
+        string Server { get; }
+        bool IsUsingIntegratedSecurity { get; }
+        string UserName { get; }
+        string Password { get; }
+        string ConnectionString { get; }
+    }
+
+    public interface IDatabaseObjectInfo
+    {
+        string DatabaseName { get; }
+        string ObjectName { get; }
+        string Schema { get; }
+        string Type { get; }
     }
 
     [Serializable]
