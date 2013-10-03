@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Reflection;
 
 namespace RedGate.SIPFrameworkShared
 {
@@ -13,6 +14,23 @@ namespace RedGate.SIPFrameworkShared
         public object GetImage()
         {
             return null;
+        }
+    }
+
+    public sealed class CommandImageForEmbeddedResources : ICommandImage
+    {
+        private readonly Bitmap m_Bitmap;
+        private readonly Image m_Image;
+
+        public CommandImageForEmbeddedResources(Assembly assembly, string resourceName)
+        {
+            m_Image = Image.FromStream(assembly.GetManifestResourceStream(resourceName));
+            m_Bitmap = new Bitmap(m_Image);
+        }
+
+        public object GetImage()
+        {
+            return m_Image;
         }
     }
 
