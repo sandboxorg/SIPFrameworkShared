@@ -56,6 +56,7 @@
     <Compile Include="ActionSimpleOeMenuItemBase.cs" />
     <Compile Include="DynamicListSimpleOeMenuItemBase.cs" />
     <Compile Include="ICommandImage.cs" />
+    <Compile Include="IMenuService.cs" />
     <Compile Include="ISharedCommand.cs" />
     <Compile Include="ISharedCommandWithExecuteParameter.cs" />
     <Compile Include="ISimpleSsmsAddin.cs" />

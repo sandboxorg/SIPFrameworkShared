@@ -33,6 +33,7 @@ namespace RedGate.SIPFrameworkShared
         object SsmsDte2 { get; }
         object SsmsAddinInstance { get; }
         IQueryWindowServices QueryWindow { get; }
+        IMenuService MenuBar { get; }
     }
 
     public interface IQueryWindowServices
