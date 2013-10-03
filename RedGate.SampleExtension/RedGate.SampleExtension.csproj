@@ -11,6 +11,8 @@
     <AssemblyName>RedGate.SampleExtension</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>\\red-gate.com\files\RG_Build_Key\RedGate.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,6 +33,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Submenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIPFrameworkShared\SIPFrameworkShared.csproj">
@@ -57,4 +70,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="RedGate_UpdateAssemblyInfo" Condition="'$(Language)' == 'C#'">
+    <UpdateAssemblyInfo AssemblyVersion="1.0.0.0" AssemblyFileVersion="$(RedGate_FullVersion)" CompanyName="$(RedGate_CompanyName)" ProductName="$(RedGate_ProductName)" />
+  </Target>
 </Project>

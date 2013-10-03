@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using RedGate.SIPFrameworkShared;
 
 namespace RedGate.SampleExtension
@@ -22,6 +23,25 @@ namespace RedGate.SampleExtension
                     new Menu("Command 1", m_Provider4),
                     new Menu("Command 2", m_Provider4),
                 };
+            
+
+            //m_Provider4.AddToolsMenuItem(new Command());
+
+            m_Provider4.AddGlobalCommand(new SharedCommand(m_Provider4));
+
+            m_Provider4.MenuBar.MainMenu.BeginSubmenu("Sample", "Sample")
+                .BeginSubmenu("Sub 1", "Sub1")
+                    .AddCommand("RedGate_Sample_Command")
+                    .AddCommand("RedGate_Sample_Command")
+                .EndSubmenu()
+                .BeginSubmenu("Sub 2", "Sub2")
+                    //.AddCommand("Command3")
+                    //.AddCommand("Command4")
+                .EndSubmenu();
+
+            
+            m_Provider4.AddToolbarItem(new Command());
+
             m_Provider4.AddTopLevelMenuItem(new Submenu(subMenus));
         }
 
@@ -33,21 +53,33 @@ namespace RedGate.SampleExtension
         public string Version { get { return "RedGate.Sample 1.0"; } }
     }
 
-    class Submenu : SubmenuSimpleOeMenuItemBase
+    public class SharedCommand : ISharedCommandWithExecuteParameter
     {
-        public Submenu(SimpleOeMenuItemBase[] subMenus)
-            : base(subMenus)
+        private readonly ISsmsFunctionalityProvider4 m_Provider;
+        private readonly ICommandImage m_CommandImage = new CommandImageNone();
+
+        public SharedCommand(ISsmsFunctionalityProvider4 provider)
         {
+            m_Provider = provider;
         }
 
-        public override string ItemText
+        public string Name { get { return "RedGate_Sample_Command"; } }
+        public void Execute(object parameter)
         {
-            get { return "SampleExtension"; }
+            m_Provider.QueryWindow.OpenNew("hello");
         }
 
-        public override bool AppliesTo(ObjectExplorerNodeDescriptorBase oeNode)
+        public string Caption { get { return "Red Gate Sample Command"; } }
+        public string Tooltip { get { return "Tooltip"; }}
+        public ICommandImage Icon { get { return m_CommandImage; } }
+        public string[] DefaultBindings { get { return new[] { "global::Ctrl+Alt+D" }; } }
+        public bool Visible { get { return true; } }
+        public bool Enabled { get { return true; } }
+
+
+        public void Execute()
         {
-            return GetApplicableChildren(oeNode).Length > 0;
+            
         }
     }
 
@@ -80,7 +112,7 @@ namespace RedGate.SampleExtension
                 m_Provider4.QueryWindow.OpenNew("null");
                 return;
             }
-            m_Provider4.QueryWindow.OpenNew(string.Format("Name: {0}\nPath: {1}\nType: {2}", oeNode.Name, oeNode.Path, oeNode.Type));
+            m_Provider4.QueryWindow.OpenNew(string.Format("Name: {0}\nPath: {1}", oeNode.Name, oeNode.Path));
         }
     }
 }
