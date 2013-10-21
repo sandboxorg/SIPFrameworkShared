@@ -10,6 +10,8 @@ namespace RedGate.SIPFrameworkShared
     {
         public static string SerializeToTempFile(ObjectExplorerNodeDescriptorBase node)
         {
+            node = GetObjectDescriptor(node);
+
             string tempFile = GetTempName();
             using (FileStream stream = new FileStream(tempFile, FileMode.CreateNew))
             {
@@ -19,6 +21,14 @@ namespace RedGate.SIPFrameworkShared
                 stream.Close();
             }
             return tempFile;
+        }
+
+        private static ObjectExplorerNodeDescriptorBase GetObjectDescriptor(ObjectExplorerNodeDescriptorBase node)
+        {
+            IOeNode oeNode = node as IOeNode;
+            if (oeNode == null)
+                return node;
+            return oeNode.GetLegacyObjectDescriptor();
         }
 
         private static string GetTempName()

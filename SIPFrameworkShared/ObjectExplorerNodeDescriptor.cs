@@ -11,6 +11,11 @@ namespace RedGate.SIPFrameworkShared
         bool TryGetDatabaseObject(out IDatabaseObjectInfo databaseObjectInfo);
         bool HasConnection { get; }
         bool TryGetConnection (out IConnectionInfo connectionInfo);
+        /// <summary>
+        /// Required for backwards compatibility with legacy plugins.
+        /// </summary>
+        /// <returns>The type that legacy plugins used to receive.</returns>
+        ObjectExplorerNodeDescriptorBase GetLegacyObjectDescriptor();
     }
 
     public interface IConnectionInfo
