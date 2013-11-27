@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIPFrameworkShared", "SIPFrameworkShared\SIPFrameworkShared.csproj", "{C54540B5-0DF7-4425-B43A-4911BD9A2821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedGate.SampleExtension", "RedGate.SampleExtension\RedGate.SampleExtension.csproj", "{0B5E23C0-58A5-4334-BCFB-964B5EF1022B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{C54540B5-0DF7-4425-B43A-4911BD9A2821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C54540B5-0DF7-4425-B43A-4911BD9A2821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C54540B5-0DF7-4425-B43A-4911BD9A2821}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B5E23C0-58A5-4334-BCFB-964B5EF1022B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B5E23C0-58A5-4334-BCFB-964B5EF1022B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B5E23C0-58A5-4334-BCFB-964B5EF1022B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B5E23C0-58A5-4334-BCFB-964B5EF1022B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
