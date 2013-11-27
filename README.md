@@ -6,4 +6,4 @@ You should use this code for reference only, when building an addin you will nee
 
 [The SSMS ecosystem project homepage](http://documentation.red-gate.com/display/MA/SSMS+ecosystem+project)
 
-[A sample SSMS ecosystem addin on GitHub]()
+[A sample SSMS ecosystem addin on GitHub](https://github.com/red-gate/SampleSsmsEcosystemAddin)
