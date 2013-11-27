@@ -4,5 +4,6 @@ These are the shared interfaces for addins written for Red Gate's SSMS ecosystem
 
 You should use this code for reference only, when building an addin you will need to use a DLL signed by Red Gate. I'll make this available through NuGet asap.
 
-[The SSMS ecosystem project homepage][http://documentation.red-gate.com/display/MA/SSMS+ecosystem+project]
-[A sample SSMS ecosystem addin on GitHub][]
+[The SSMS ecosystem project homepage](http://documentation.red-gate.com/display/MA/SSMS+ecosystem+project)
+
+[A sample SSMS ecosystem addin on GitHub]()
