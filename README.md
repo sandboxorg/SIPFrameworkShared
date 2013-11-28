@@ -7,4 +7,3 @@ You should use this code for reference only, when building an addin you will nee
 [The SSMS ecosystem project homepage](http://www.red-gate.com/ssmsecosystem)
 
 [A sample SSMS ecosystem addin on GitHub](https://github.com/red-gate/SampleSsmsEcosystemAddin)
-
