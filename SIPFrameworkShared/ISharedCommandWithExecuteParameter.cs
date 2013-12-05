@@ -3,7 +3,7 @@
     public interface ISharedCommandWithExecuteParameter
     {
         /// <summary>
-        /// The command name. Must be constant!
+        /// The command name. Must be constant! Must not contain spaces.
         /// </summary>
         string Name { get; }
 
