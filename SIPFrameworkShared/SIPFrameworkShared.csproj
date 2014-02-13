@@ -10,8 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RedGate.SIPFrameworkShared</RootNamespace>
     <AssemblyName>RedGate.SIPFrameworkShared</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>\\red-gate.com\files\RG_Build_Key\RedGate.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,21 +33,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>$(SolutionDir)Build\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>..\Build\Debug\SIPFrameworkShared.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -53,24 +41,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionSimpleOeMenuItemBase.cs" />
-    <Compile Include="DynamicListSimpleOeMenuItemBase.cs" />
+    <Compile Include="OeMenuItemBases\ActionSimpleOeMenuItemBase.cs" />
+    <Compile Include="Connections\ConnectionDialogClosedEventArgs.cs" />
+    <Compile Include="Connections\ConnectionDialogOpenedEventArgs.cs" />
+    <Compile Include="OeMenuItemBases\DynamicListSimpleOeMenuItemBase.cs" />
     <Compile Include="ICommandImage.cs" />
+    <Compile Include="Connections\IConnectionManager.cs" />
+    <Compile Include="ICommandManager.cs" />
+    <Compile Include="IMainSsmsWindowProvider.cs" />
     <Compile Include="IMenuService.cs" />
+    <Compile Include="IServerManagementObjectsAdapter.cs" />
+    <Compile Include="ISsmsInfo.cs" />
+    <Compile Include="ISsmsMainWindow.cs" />
+    <Compile Include="IToolWindowService.cs" />
+    <Compile Include="ObjectExplorer\IObjectExplorerWatcher.cs" />
     <Compile Include="ISharedCommand.cs" />
     <Compile Include="ISharedCommandWithExecuteParameter.cs" />
     <Compile Include="ISimpleSsmsAddin.cs" />
     <Compile Include="ISsmsFunctionalityProvider.cs" />
-    <Compile Include="ISsmsObject.cs" />
+    <Compile Include="ISsmsTabPage.cs" />
     <Compile Include="ISsmsQueryWindowManager.cs" />
     <Compile Include="MenuCommand.cs" />
     <Compile Include="ObjectExplorerNodeDescriptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeparatorSimpleOeMenuItemBase.cs" />
-    <Compile Include="SerializationUtils.cs" />
-    <Compile Include="SimpleOeMenuItemBase.cs" />
-    <Compile Include="SubmenuSimpleOeMenuItemBase.cs" />
+    <Compile Include="OeMenuItemBases\SeparatorSimpleOeMenuItemBase.cs" />
+    <Compile Include="Legacy\SerializationUtils.cs" />
+    <Compile Include="OeMenuItemBases\SimpleOeMenuItemBase.cs" />
+    <Compile Include="OeMenuItemBases\SubmenuSimpleOeMenuItemBase.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\MSBuild\Product.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

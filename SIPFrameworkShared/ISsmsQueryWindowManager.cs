@@ -10,4 +10,24 @@ namespace RedGate.SIPFrameworkShared
         /// <param name="command">The command to insert.</param>
         void AddQueryWindowContextMenuItem(string afterCommandName, ISharedCommand command);
     }
+
+    public interface IQueryWindowServices
+    {
+        /// <summary>
+        /// Opens a new query window containing the given text.
+        /// </summary>
+        /// <param name="intialSql">The initial text of the query window.</param>
+        void OpenNew(string intialSql);
+    }
+
+    public interface IQueryWindowServices2 : IQueryWindowServices
+    {
+        /// <summary>
+        /// Opens a new query window containing the given text.
+        /// </summary>
+        /// <param name="intialSql">The initial text of the query window.</param>
+        /// <param name="scriptName">The name for the query window</param>
+        /// <param name="connectionString">The connection string, if you want the query window to be connected</param>
+        void OpenNew(string intialSql, string scriptName, string connectionString);
+    }
 }

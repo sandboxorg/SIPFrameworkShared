@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using RedGate.SIPFrameworkShared.Connections;
+using RedGate.SIPFrameworkShared.ObjectExplorer;
 
 namespace RedGate.SIPFrameworkShared
 {
@@ -140,14 +142,64 @@ namespace RedGate.SIPFrameworkShared
         /// Provides a fluent API for building main menus.
         /// </summary>
         IMenuService MenuBar { get; }
-    }
 
-    public interface IQueryWindowServices
+        IMainSsmsWindowProvider MainWindows { get; }
+    }
+    
+    public interface ISsmsFunctionalityProvider5 : ISsmsFunctionalityProvider4
     {
         /// <summary>
-        /// Opens a new query window containing the given text.
+        /// Tool windows are dockable controls with SSMS
         /// </summary>
-        /// <param name="intialSql">The initial text of the query window.</param>
-        void OpenNew(string intialSql);
+        IToolWindowService ToolWindow { get; }
+
+        /// <summary>
+        /// Provides useful information about the SSMS and the environment
+        /// </summary>
+        ISsmsInfo SsmsInfo { get; }
+
+        /// <summary>
+        /// Events raised adding and removing server connections
+        /// </summary>
+        IConnectionManager ConnectionManager { get; }
+
+        /// <summary>
+        /// Provides a handle to the main SSMS window. Useful for modal windows.
+        /// </summary>
+        ISsmsMainWindow MainWindow { get; }
+    }
+
+    public interface ISsmsFunctionalityProvider6 : ISsmsFunctionalityProvider5
+    {
+        /// <summary>
+        /// This can be used to explore the server connections open in SSMS.
+        /// </summary>
+        /// <returns>The dictionary keys describe a server connection. The values are lists of the databases on those servers.</returns>
+        new Dictionary<IConnectionInfo2, IEnumerable<string>> GetConnectionsAndDatabases();
+
+        /// <summary>
+        /// Provides additional functions to control command registered with SSMS
+        /// </summary>
+        ICommandManager CommandManager { get; }
+
+        /// <summary>
+        /// Provides events and state of the object explorer
+        /// </summary>
+        IObjectExplorerWatcher ObjectExplorerWatcher { get; }
+
+        /// <summary>
+        /// A wrapper around SMO functions.
+        /// 
+        /// Every version of SSMS loads a different version of SMO. If you can't provide your own SMO implementation this provides a common interface across the one SSMS has loaded.
+        /// </summary>
+        IServerManagementObjectsAdapter ServerManagementObjects { get; }
+
+        /// <summary>
+        /// IQueryWindowServices will provide a collection of utilties for interacting with query windows. You should 
+        /// check if you can cast it to a later version of the interface.
+        /// 
+        /// Query windows are the text windows that you can type SQL into execute.
+        /// </summary>
+        new IQueryWindowServices2 QueryWindow { get; }
     }
 }

@@ -18,6 +18,14 @@ namespace RedGate.SIPFrameworkShared
         ObjectExplorerNodeDescriptorBase GetLegacyObjectDescriptor();
     }
 
+    public interface IOeNode2 : IOeNode, IEquatable<IOeNode2>
+    {
+        bool HasConnection2 { get; }
+        bool TryGetConnection2(out IConnectionInfo2 connectionInfo);
+        bool HasDatabaseName { get; }
+        bool TryGetDatabaseName(out string databaseName);
+    }
+
     public interface IConnectionInfo
     {
         string Server { get; }
@@ -25,6 +33,12 @@ namespace RedGate.SIPFrameworkShared
         string UserName { get; }
         string Password { get; }
         string ConnectionString { get; }
+    }
+
+    public interface IConnectionInfo2 : IConnectionInfo, IEquatable<IConnectionInfo2>
+    {
+        Version ServerVersion { get; }
+        string Database { get; }
     }
 
     public interface IDatabaseObjectInfo

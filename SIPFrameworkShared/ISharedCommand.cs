@@ -1,4 +1,6 @@
-﻿namespace RedGate.SIPFrameworkShared
+﻿using System;
+
+namespace RedGate.SIPFrameworkShared
 {
     public interface ISharedCommand
     {
@@ -35,6 +37,4 @@
         bool Visible { get; }
         bool Enabled { get; }
     }
-
-
 }

@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Red Gate Software Ltd.")]
 [assembly: AssemblyProduct("SSMS Integration Pack Framework")]
-[assembly: AssemblyCopyright("Copyright © Red Gate Software Ltd. 2011")]
+[assembly: AssemblyCopyright("Copyright © Red Gate Software Ltd. 2011-2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

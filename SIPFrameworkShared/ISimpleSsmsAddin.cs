@@ -21,7 +21,39 @@
     {
         void OnLoad(ISsmsFunctionalityProvider provider);
         void OnNodeChanged(ObjectExplorerNodeDescriptorBase node);
+
+        /// <summary>
+        /// The version of your addin as a string
+        /// </summary>
         string Version { get; }
+    }
+
+    public interface ISsmsAddin3 : ISsmsAddin
+    {
+        /// <summary>
+        /// A long description of the purpose of your addin
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
+        /// The name of your addin
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
+        /// Who is responsible for creating the addin
+        /// </summary>
+        string Author { get; }
+
+        /// <summary>
+        /// The addins webpage URL
+        /// </summary>
+        string Url { get; }
+    }
+
+    public interface ISsmsAddin4 : ISsmsAddin3
+    {
+        void OnShutdown();
     }
 
     /// <summary>
@@ -51,4 +83,6 @@
             get { return m_SimpleSsmsAddin.Version; }
         }
     }
+
+
 }
