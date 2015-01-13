@@ -57,7 +57,7 @@
     <Compile Include="ObjectExplorer\IObjectExplorerWatcher.cs" />
     <Compile Include="ISharedCommand.cs" />
     <Compile Include="ISharedCommandWithExecuteParameter.cs" />
-    <Compile Include="ISimpleSsmsAddin.cs" />
+    <Compile Include="ISsmsAddin.cs" />
     <Compile Include="ISsmsFunctionalityProvider.cs" />
     <Compile Include="ISsmsTabPage.cs" />
     <Compile Include="ISsmsQueryWindowManager.cs" />

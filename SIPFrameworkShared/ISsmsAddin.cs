@@ -53,7 +53,18 @@
 
     public interface ISsmsAddin4 : ISsmsAddin3
     {
+        /// <summary>
+        /// Notification that SSMS is beginning to shutdown.
+        /// </summary>
         void OnShutdown();
+    }
+
+    public interface ISsmsAddin5 : ISsmsAddin4
+    {
+        /// <summary>
+        /// SSMS has shutdown. Last chance to release resources.
+        /// </summary>
+        void OnDisconnect();
     }
 
     /// <summary>
