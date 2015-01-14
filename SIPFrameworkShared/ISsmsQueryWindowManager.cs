@@ -30,4 +30,23 @@ namespace RedGate.SIPFrameworkShared
         /// <param name="connectionString">The connection string, if you want the query window to be connected</param>
         void OpenNew(string intialSql, string scriptName, string connectionString);
     }
+
+    public interface IQueryWindowServices3 : IQueryWindowServices2
+    {
+        /// <summary>
+        /// Opens a new query window containing the given text.
+        /// </summary>
+        /// <param name="intialSql">The initial text of the query window.</param>
+        /// <param name="scriptName">The name for the query window</param>
+        /// <param name="connectionString">The connection string, if you want the query window to be connected</param>
+        void OpenNew(string intialSql, string connectionString);
+
+        IQueryWindow GetActiveQueryWindow();
+    }
+
+    public interface IQueryWindow
+    {
+        string GetAllText();
+        string GetSelectedText();
+    }
 }

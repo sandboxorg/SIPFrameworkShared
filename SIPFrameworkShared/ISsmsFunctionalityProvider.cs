@@ -202,4 +202,15 @@ namespace RedGate.SIPFrameworkShared
         /// </summary>
         new IQueryWindowServices2 QueryWindow { get; }
     }
+
+    public interface ISsmsFunctionalityProvider7 : ISsmsFunctionalityProvider6
+    {
+        /// <summary>
+        /// IQueryWindowServices will provide a collection of utilties for interacting with query windows. You should 
+        /// check if you can cast it to a later version of the interface.
+        /// 
+        /// Query windows are the text windows that you can type SQL into execute.
+        /// </summary>
+        new IQueryWindowServices3 QueryWindow { get; }
+    }
 }
