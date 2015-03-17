@@ -32,7 +32,7 @@ namespace RedGate.SIPFrameworkShared
         /// Gets the name of the SQL Server instance as reported by SQL Server.
         /// </summary>
         /// <remarks>
-        /// See also https://msdn.microsoft.com/en-us/library/ms187944.aspx?f=255&MSPPError=-2147217396.
+        /// See also https://msdn.microsoft.com/en-us/library/ms187944.aspx?f=255&amp;MSPPError=-2147217396.
         /// </remarks>
         string ServerLocalName { get; }
     }
@@ -77,9 +77,9 @@ namespace RedGate.SIPFrameworkShared
         public string Password { get; set; }
         public string ApplicationName { get; set; }
         public Guid ServerType { get; set; }
-        public string ConnectionString { get; set; }        
+        public string ConnectionString { get; set; }
     }
-    
+
     [Serializable]
     public class ObjectExplorerNodeDescriptorBase
     {

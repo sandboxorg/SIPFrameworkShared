@@ -145,7 +145,7 @@ namespace RedGate.SIPFrameworkShared
 
         IMainSsmsWindowProvider MainWindows { get; }
     }
-    
+
     public interface ISsmsFunctionalityProvider5 : ISsmsFunctionalityProvider4
     {
         /// <summary>
@@ -201,5 +201,13 @@ namespace RedGate.SIPFrameworkShared
         /// Query windows are the text windows that you can type SQL into execute.
         /// </summary>
         new IQueryWindowServices2 QueryWindow { get; }
+    }
+
+    public interface ISsmsFunctionalityProvider7 : ISsmsFunctionalityProvider6
+    {
+        /// <summary>
+        /// Provides events and state of the object explorer
+        /// </summary>
+        new IObjectExplorerWatcher2 ObjectExplorerWatcher { get; }
     }
 }
