@@ -26,6 +26,17 @@ namespace RedGate.SIPFrameworkShared
         bool TryGetDatabaseName(out string databaseName);
     }
 
+    public interface IOeNode3 : IOeNode2, IEquatable<IOeNode3>
+    {
+        /// <summary>
+        /// Gets the name of the SQL Server instance as reported by SQL Server.
+        /// </summary>
+        /// <remarks>
+        /// See also https://msdn.microsoft.com/en-us/library/ms187944.aspx?f=255&MSPPError=-2147217396.
+        /// </remarks>
+        string ServerLocalName { get; }
+    }
+
     public interface IConnectionInfo
     {
         string Server { get; }
